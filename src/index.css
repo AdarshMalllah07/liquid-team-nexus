@@ -111,40 +111,70 @@ All colors MUST be HSL.
 
 @layer components {
   .glass-panel {
-    @apply backdrop-blur-xl bg-glass-background border border-glass-border rounded-2xl shadow-2xl;
+    @apply rounded-2xl shadow-2xl;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    background: hsl(var(--glass-background));
+    border: 1px solid hsl(var(--glass-border));
   }
   
   .glass-button {
-    @apply backdrop-blur-xl bg-glass-background border border-glass-border rounded-xl 
-           hover:bg-glass-hover transition-all duration-300 px-4 py-2 text-glass-foreground
-           shadow-lg hover:shadow-xl hover:-translate-y-0.5;
+    @apply rounded-xl transition-all duration-300 px-4 py-2 shadow-lg hover:shadow-xl hover:-translate-y-0.5;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    background: hsl(var(--glass-background));
+    border: 1px solid hsl(var(--glass-border));
+    color: hsl(var(--glass-foreground));
+  }
+  
+  .glass-button:hover {
+    background: hsl(var(--glass-hover));
   }
   
   .glass-card {
-    @apply backdrop-blur-md bg-glass-background border border-glass-border rounded-xl 
-           shadow-lg hover:shadow-xl transition-all duration-300 p-4;
+    @apply rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 p-4;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    background: hsl(var(--glass-background));
+    border: 1px solid hsl(var(--glass-border));
   }
   
   .glass-input {
-    @apply backdrop-blur-md bg-glass-background border border-glass-border rounded-lg 
-           px-4 py-2 text-glass-foreground placeholder-muted-foreground
-           focus:outline-none focus:ring-2 focus:ring-primary/50;
+    @apply rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary/50;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    background: hsl(var(--glass-background));
+    border: 1px solid hsl(var(--glass-border));
+    color: hsl(var(--glass-foreground));
+  }
+  
+  .glass-input::placeholder {
+    color: hsl(var(--muted-foreground));
   }
   
   .floating-button {
-    @apply fixed bottom-6 right-6 w-14 h-14 rounded-full backdrop-blur-xl 
-           bg-gradient-accent border border-glass-border shadow-2xl
-           hover:scale-110 transition-all duration-300 flex items-center justify-center
-           animate-float cursor-pointer z-50;
+    @apply fixed bottom-6 right-6 w-14 h-14 rounded-full shadow-2xl hover:scale-110 transition-all duration-300 flex items-center justify-center animate-float cursor-pointer z-50;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    background: var(--gradient-accent);
+    border: 1px solid hsl(var(--glass-border));
   }
   
   .chat-bubble-sender {
-    @apply backdrop-blur-md bg-primary/20 border border-primary/30 rounded-2xl 
-           rounded-br-sm px-4 py-2 text-glass-foreground max-w-xs;
+    @apply rounded-2xl rounded-br-sm px-4 py-2 max-w-xs;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    background: hsl(199 89% 48% / 0.2);
+    border: 1px solid hsl(199 89% 48% / 0.3);
+    color: hsl(var(--glass-foreground));
   }
   
   .chat-bubble-receiver {
-    @apply backdrop-blur-md bg-muted/30 border border-glass-border rounded-2xl 
-           rounded-bl-sm px-4 py-2 text-glass-foreground max-w-xs;
+    @apply rounded-2xl rounded-bl-sm px-4 py-2 max-w-xs;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    background: hsl(var(--muted) / 0.3);
+    border: 1px solid hsl(var(--glass-border));
+    color: hsl(var(--glass-foreground));
   }
 }
