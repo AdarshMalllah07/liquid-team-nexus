@@ -73,21 +73,42 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
           ))}
         </nav>
 
-        <div className="absolute bottom-6 left-6 right-6">
+        <div className="absolute bottom-6 left-6 right-6 space-y-4">
           <div className="glass-card p-4">
-            <p className="text-sm text-muted-foreground mb-2">Team Activity</p>
-            <div className="flex items-center gap-2">
+            <p className="text-sm font-semibold mb-3">Team Activity</p>
+            
+            {/* Active Members */}
+            <div className="mb-3">
+              <div className="flex items-center justify-between mb-2">
+                <span className="text-xs text-muted-foreground">Active Now</span>
+                <span className="text-xs bg-primary/20 text-primary px-2 py-1 rounded-full">8 online</span>
+              </div>
               <div className="flex -space-x-2">
-                {[1, 2, 3].map((i) => (
+                {["Sarah J.", "Mike C.", "Lisa K.", "Tom B.", "Emma W."].map((name, i) => (
                   <div
                     key={i}
-                    className="w-8 h-8 rounded-full bg-gradient-accent border-2 border-background flex items-center justify-center text-xs text-white font-bold"
+                    className="w-8 h-8 rounded-full bg-gradient-accent border-2 border-background flex items-center justify-center text-xs text-white font-bold hover:scale-110 transition-transform cursor-pointer"
+                    title={name}
                   >
-                    U{i}
+                    {name.split(' ').map(n => n[0]).join('')}
                   </div>
                 ))}
+                <div className="w-8 h-8 rounded-full bg-muted border-2 border-background flex items-center justify-center text-xs font-bold">
+                  +3
+                </div>
               </div>
-              <span className="text-xs text-glass-foreground">+5 online</span>
+            </div>
+            
+            {/* Recent Activity */}
+            <div className="space-y-2 pt-3 border-t border-border/20">
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                <p className="text-xs text-muted-foreground">Sarah completed 3 tasks</p>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
+                <p className="text-xs text-muted-foreground">Mike started a meeting</p>
+              </div>
             </div>
           </div>
         </div>

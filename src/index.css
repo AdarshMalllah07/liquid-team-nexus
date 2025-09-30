@@ -8,54 +8,54 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 222 47% 11%;
-    --foreground: 210 40% 98%;
+    --background: 210 100% 97%;
+    --foreground: 222 47% 11%;
 
-    --card: 217 33% 17%;
-    --card-foreground: 210 40% 98%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
 
-    --popover: 224 71% 4%;
-    --popover-foreground: 215 20% 65%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
 
     --primary: 199 89% 48%;
-    --primary-foreground: 222 47% 11%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 217 33% 17%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 210 100% 96%;
+    --secondary-foreground: 222 47% 11%;
 
-    --muted: 215 25% 27%;
-    --muted-foreground: 215 20% 65%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
 
-    --accent: 267 66% 60%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 267 84% 81%;
+    --accent-foreground: 222 47% 11%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 217 33% 25%;
-    --input: 217 33% 25%;
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
     --ring: 199 89% 48%;
 
     --radius: 1rem;
 
     /* Glass morphism variables */
-    --glass-background: 210 40% 98% / 0.05;
-    --glass-foreground: 210 40% 98%;
-    --glass-border: 210 40% 98% / 0.1;
-    --glass-hover: 210 40% 98% / 0.1;
+    --glass-background: 255 255% 100% / 0.7;
+    --glass-foreground: 222 47% 11%;
+    --glass-border: 220 14% 71% / 0.2;
+    --glass-hover: 255 255% 100% / 0.8;
     
     /* Gradients */
-    --gradient-main: linear-gradient(135deg, hsl(222 47% 11%), hsl(267 66% 20%), hsl(199 89% 25%));
-    --gradient-glass: linear-gradient(135deg, hsl(210 40% 98% / 0.05), hsl(210 40% 98% / 0.02));
-    --gradient-accent: linear-gradient(135deg, hsl(199 89% 48%), hsl(267 66% 60%));
+    --gradient-main: linear-gradient(135deg, hsl(210 100% 95%), hsl(267 100% 96%), hsl(199 100% 94%));
+    --gradient-glass: linear-gradient(135deg, hsl(255 255% 100% / 0.8), hsl(255 255% 100% / 0.4));
+    --gradient-accent: linear-gradient(135deg, hsl(199 89% 48%), hsl(267 84% 81%));
 
-    --sidebar-background: 217 33% 17% / 0.6;
-    --sidebar-foreground: 210 40% 98%;
+    --sidebar-background: 255 255% 100% / 0.85;
+    --sidebar-foreground: 222 47% 11%;
     --sidebar-primary: 199 89% 48%;
-    --sidebar-primary-foreground: 222 47% 11%;
-    --sidebar-accent: 217 33% 25%;
-    --sidebar-accent-foreground: 210 40% 98%;
-    --sidebar-border: 217 33% 25% / 0.2;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 210 100% 96%;
+    --sidebar-accent-foreground: 222 47% 11%;
+    --sidebar-border: 214 32% 91% / 0.5;
     --sidebar-ring: 199 89% 48%;
   }
 
@@ -112,16 +112,17 @@ All colors MUST be HSL.
 @layer components {
   .glass-panel {
     @apply rounded-2xl shadow-2xl;
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
     background: hsl(var(--glass-background));
     border: 1px solid hsl(var(--glass-border));
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
   }
   
   .glass-button {
     @apply rounded-xl transition-all duration-300 px-4 py-2 shadow-lg hover:shadow-xl hover:-translate-y-0.5;
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(16px) saturate(150%);
+    -webkit-backdrop-filter: blur(16px) saturate(150%);
     background: hsl(var(--glass-background));
     border: 1px solid hsl(var(--glass-border));
     color: hsl(var(--glass-foreground));
@@ -129,20 +130,22 @@ All colors MUST be HSL.
   
   .glass-button:hover {
     background: hsl(var(--glass-hover));
+    box-shadow: 0 4px 20px 0 rgba(31, 38, 135, 0.2);
   }
   
   .glass-card {
     @apply rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 p-4;
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(16px) saturate(150%);
+    -webkit-backdrop-filter: blur(16px) saturate(150%);
     background: hsl(var(--glass-background));
     border: 1px solid hsl(var(--glass-border));
+    box-shadow: 0 4px 16px 0 rgba(31, 38, 135, 0.1);
   }
   
   .glass-input {
     @apply rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary/50;
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(16px) saturate(150%);
+    -webkit-backdrop-filter: blur(16px) saturate(150%);
     background: hsl(var(--glass-background));
     border: 1px solid hsl(var(--glass-border));
     color: hsl(var(--glass-foreground));
